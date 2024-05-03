@@ -1,0 +1,26 @@
+body{
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to right, rgb(0, 0, 0,0.6), rgb(230, 207, 207), black);
+}
+
+h1{
+    background-color: rgb(97, 31, 31);
+    padding: 1.5%;
+    border-radius: 15px;
+}
+.contenedor-imagenes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5vh;
+    object-fit: cover;
+
+}
+.contenedor-imagenes img{
+    width: 45vw;
+    height: 65vh;
+}

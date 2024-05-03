@@ -1,0 +1,54 @@
+.contenedor-principal{
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(to right,rgba(24, 23, 23,0.7),rgba(91, 91, 135, 0.8), rgb(25, 25, 15));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2vh;
+}
+
+.contenedor-principal img{
+    width: 45vw;
+    height: 67vh;
+}
+
+.padre{
+    display: flex;
+    gap: 2vw;
+}
+.padre-1{
+    display: flex;
+    flex-direction: column;
+    gap: 4.5vh;
+}
+.padre-1 div{
+    background-color: rgb(187, 201, 95);
+    height: 10vh;
+    width: 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(37, 39, 37);
+    font-weight: bolder;
+    font-size: larger;
+    border-radius: 15px;
+}
+
+#boton{
+    width: 10%;
+    height: 5%;
+    background-color: rgb(97, 17, 11);
+    border: none;
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: rgb(211, 203, 200);
+}
+
+h1{
+    background-color: rgb(204, 168, 50);
+    padding: 1%;
+    border-radius: 5px;
+}
