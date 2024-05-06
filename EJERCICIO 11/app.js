@@ -64,7 +64,7 @@ const obtenerFecha = function(mensaje){
 
 const obtenerDiasFechas = function(fechaInicio, fechaFin){
     const unDia = 1000 * 60 * 60 * 24 //contar milisegundos de un dia
-    const diferenciaEnMilis = Math.abs(fechaFin.getTime() - fechaInicio.getTime())
+    const diferenciaEnMilis = fechaFin.getTime() - fechaInicio.getTime()
     return Math.round(diferenciaEnMilis / unDia)
 }
 
