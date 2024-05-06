@@ -12,13 +12,13 @@ const whileValHuesped = function(value){
     return value
 }
 
-const whileIdHabitaciones = function(habConCapacity,rooms){
+const whileIdHabitaciones = function(rooms){
     let idHabitaciones = Number(prompt("Ingresa el numero del id de la habitación que quieres reservar"))
-    // let habitacionesID = rooms.filter(room => room.roomTypeId === idHabitaciones && room.availability == true)
-    let habValida = habConCapacity.find(room => room.id === idHabitaciones)
+    const habValida = rooms.find(room => room.id === idHabitaciones)
+
     while(!habValida){
         idHabitaciones = Number(prompt("Ingrese un numero de id valido"))
-        habValida = habConCapacity.find(room => room.id === idHabitaciones)
+        habValida = rooms.find(room => room.id === idHabitaciones)
     }
     const habitacionesID = rooms.filter(room => room.roomTypeId === idHabitaciones && room.availability == true)
     return {idHabitaciones,habitacionesID}
@@ -126,7 +126,7 @@ export const generarReserva = function(rooms, roomTypes){
     habConCapacity.forEach(hab => str += JSON.stringify(hab) + "\n")
     alert(`Los tipos de habitaciones disponibles son:\n${str}`)
 
-    let resultado = whileIdHabitaciones(habConCapacity,rooms)
+    let resultado = whileIdHabitaciones(habConCapacity)
     let idHabitaciones = resultado.idHabitaciones
     let habitacionesID = resultado.habitacionesID
 
@@ -256,6 +256,5 @@ export const editarReserva = function(){
             }
 
         })
-      
     }
 }
