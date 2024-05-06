@@ -76,6 +76,16 @@ const validarFechasDisponibles = function(array, numeroHabitacion, fechaInicio, 
 
 }
 
+const GenerarIdReserva  = function(){
+    let contId = 0
+    return function(){
+        contId ++
+        return contId
+    }
+}
+
+let idReserva = GenerarIdReserva()
+
 const agregarReserva = function(idDeReserva,nombreTitular,numeroHuespedes,fechaInicio,fechaFin,numeroHabitacion,precioNoche,cantidadDias, precioTotal,tipoHabitacion,descripcionHabitacion,capacidad){
     return new Promise((resolve,reject) => {
         setTimeout(() => {
@@ -106,15 +116,6 @@ const agregarReserva = function(idDeReserva,nombreTitular,numeroHuespedes,fechaI
     })
 }
 
-const GenerarIdReserva  = function(){
-    let contId = 0
-    return function(){
-        contId ++
-        return contId
-    }
-}
-
-let idReserva = GenerarIdReserva()
 
 export const generarReserva = function(rooms, roomTypes){
     let numHuespedes = prompt("Ingrese el número de personas que se van a alojar")
@@ -229,10 +230,11 @@ export const cancelarReserva = function(){
     }
 }
 
+
 export const editarReserva = function(){
     let idAEditar = Number(prompt("Ingrese el id de la reserva que desea editar"))
-    let idEncontrado = reservasDB.find(reserva => reserva.idDeReserva === idAEditar)
-    if(!idEncontrado){
+    let reservaAEditar = reservasDB.find(reserva => reserva.idDeReserva === idAEditar)
+    if(!reservaAEditar){
         alert("No se encontraron reservas con el id ingresado")
     }else{
         let nuevaFechaInicio = obtenerFecha("Ingrese la nueva fecha de inicio") 
@@ -246,15 +248,14 @@ export const editarReserva = function(){
             (nuevaFechaFin >= reserva.fechaInicio && nuevaFechaFin <= reserva.fechaFin))){
                 generarReserva = false
             }
-            if(generarReserva){
-                reserva.fechaInicio = nuevaFechaInicio
-                reserva.fechaFin = nuevaFechaFin
-                alert("Su nueva reserva es: \n" + JSON.stringify(reserva, null, 2))
-            }else{
-                alert("No hay disponibilidad en esa habitación para las fechas seleccionadas")
-            }
-
         })
-      
+        if(generarReserva){
+            reservaAEditar.fechaInicio = nuevaFechaInicio
+            reservaAEditar.fechaFin = nuevaFechaFin
+            alert("Su nueva reserva es: \n" + JSON.stringify(reservaAEditar, null, 2))
+        }else{
+            alert("No hay disponibilidad en esa habitación para las fechas seleccionadas")
+        }
     }
 }
+
