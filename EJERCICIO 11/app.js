@@ -14,7 +14,6 @@ const whileValHuesped = function(value){
 
 const whileIdHabitaciones = function(habConCapacity,rooms){
     let idHabitaciones = Number(prompt("Ingresa el numero del id de la habitación que quieres reservar"))
-    // let habitacionesID = rooms.filter(room => room.roomTypeId === idHabitaciones && room.availability == true)
     let habValida = habConCapacity.find(room => room.id === idHabitaciones)
     while(!habValida){
         idHabitaciones = Number(prompt("Ingrese un numero de id valido"))
